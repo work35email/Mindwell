@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ t('consent_title') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head">
+    <h1 class="with-icon">{{ icon('shield-check', 22) }} {{ t('consent_title') }}</h1>
+    <p class="lede">{{ t('consent_intro') }}</p>
+  </header>
+  <form class="panel" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    {% for name in types %}
+    <label class="check">
+      <input type="checkbox" name="{{ name }}" {% if name in granted %}checked{% endif %}>
+      {{ t('consent_' + name) }}
+    </label>
+    <p class="hint">{{ t('consent_' + name + '_help') }}</p>
+    {% endfor %}
+    <button type="submit">{{ t('save') }}</button>
+  </form>
+</section>
+{% endblock %}

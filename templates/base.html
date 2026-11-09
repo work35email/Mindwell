@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>{% block title %}{{ t('app_name') }}{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Sinhala:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}?v=22">
+</head>
+<body>
+  <a class="skip" href="#content">{{ t('skip') }}</a>
+  <header class="topbar">
+    <div class="shell bar">
+      <a class="wordmark" href="{{ url_for('wellness.home') }}">{{ t('app_name') }}</a>
+      <div class="bar-actions">
+        <a class="bar-link{% if request.endpoint == 'explore.support' %} on{% endif %}" href="{{ url_for('explore.support') }}"{% if request.endpoint == 'explore.support' %} aria-current="page"{% endif %}>{{ icon('life-buoy', 16) }} {{ t('nav_support') }}</a>
+        {% if current_user.is_authenticated %}
+        <a class="bar-link{% if request.endpoint == 'wellness.settings' %} on{% endif %}" href="{{ url_for('wellness.settings') }}"{% if request.endpoint == 'wellness.settings' %} aria-current="page"{% endif %}>{{ icon('settings', 16) }} {{ t('nav_settings') }}</a>
+        {% endif %}
+        <a class="quick-exit" accesskey="q" href="https://www.google.com" title="{{ t('quick_exit_title') }}"
+           onclick="document.body.replaceChildren();window.location.replace(this.href);return false;">{{ icon('log-out', 16) }} {{ t('quick_exit') }}</a>
+        {% if current_user.is_authenticated %}
+        <form method="post" action="{{ url_for('auth.logout') }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button type="submit" class="textish">{{ t('logout') }}</button>
+        </form>
+        {% endif %}
+      </div>
+    </div>
+    <div class="shell">
+      {% if current_user.is_authenticated %}
+      {% set ep = request.endpoint or '' %}
+      <nav id="site-nav" class="main-nav" aria-label="{{ t('app_name') }}">
+        <section class="nav-card">
+          <span class="nav-icon icon-sun">{{ icon('sun', 22) }}</span>
+          <div class="nav-card-body">
+            <span class="nav-label">{{ t('nav_group_daily') }}</span>
+            <div class="nav-links">
+              <a href="{{ url_for('wellness.home') }}"{% if ep == 'wellness.home' %} class="on" aria-current="page"{% endif %}>{{ t('nav_home') }}</a>
+              <span class="sep" aria-hidden="true">·</span>
+              <a href="{{ url_for('wellness.checkin') }}"{% if ep == 'wellness.checkin' %} class="on" aria-current="page"{% endif %}>{{ t('nav_checkin') }}</a>
+              <span class="sep" aria-hidden="true">·</span>
+              <a href="{{ url_for('wellness.sleep') }}"{% if ep == 'wellness.sleep' %} class="on" aria-current="page"{% endif %}>{{ t('nav_sleep') }}</a>
+              <span class="sep" aria-hidden="true">·</span>
+              <a href="{{ url_for('wellness.stress') }}"{% if ep == 'wellness.stress' %} class="on" aria-current="page"{% endif %}>{{ t('nav_stress') }}</a>
+            </div>
+          </div>
+        </section>
+        <section class="nav-card">
+          <span class="nav-icon icon-heart">{{ icon('book-heart', 22) }}</span>
+          <div class="nav-card-body">
+            <span class="nav-label">{{ t('nav_group_journal') }}</span>
+            <div class="nav-links">
+              <a href="{{ url_for('journal.index') }}"{% if ep.startswith('journal.') %} class="on" aria-current="page"{% endif %}>{{ t('nav_journal') }}</a>
+              <span class="sep" aria-hidden="true">·</span>
+              <a href="{{ url_for('companion.page') }}"{% if ep == 'companion.page' %} class="on" aria-current="page"{% endif %}>{{ t('nav_companion') }}</a>
+            </div>
+          </div>
+        </section>
+        <section class="nav-card">
+          <span class="nav-icon icon-sprout">{{ icon('sprout', 22) }}</span>
+          <div class="nav-card-body">
+            <span class="nav-label">{{ t('nav_group_stage') }}</span>
+            <div class="nav-links">
+              <a href="{{ url_for('wellness.cycle') }}"{% if ep == 'wellness.cycle' %} class="on" aria-current="page"{% endif %}>{{ t('nav_cycle') }}</a>
+              <span class="sep" aria-hidden="true">·</span>
+              <a href="{{ url_for('explore.pregnancy') }}"{% if ep == 'explore.pregnancy' %} class="on" aria-current="page"{% endif %}>{{ t('nav_pregnancy') }}</a>
+              <span class="sep" aria-hidden="true">·</span>
+              <a href="{{ url_for('explore.menopause') }}"{% if ep == 'explore.menopause' %} class="on" aria-current="page"{% endif %}>{{ t('nav_menopause') }}</a>
+            </div>
+          </div>
+        </section>
+        <section class="nav-card">
+          <span class="nav-icon icon-library">{{ icon('library', 22) }}</span>
+          <div class="nav-card-body">
+            <span class="nav-label">{{ t('nav_group_resources') }}</span>
+            <div class="nav-links">
+              <a href="{{ url_for('explore.insights') }}"{% if ep == 'explore.insights' %} class="on" aria-current="page"{% endif %}>{{ t('nav_insights') }}</a>
+              <span class="sep" aria-hidden="true">·</span>
+              <a href="{{ url_for('explore.plan') }}"{% if ep == 'explore.plan' %} class="on" aria-current="page"{% endif %}>{{ t('nav_plan') }}</a>
+              <span class="sep" aria-hidden="true">·</span>
+              <a href="{{ url_for('explore.library') }}"{% if ep.startswith('explore.library') %} class="on" aria-current="page"{% endif %}>{{ t('nav_library') }}</a>
+              <span class="sep" aria-hidden="true">·</span>
+              <a href="{{ url_for('explore.connect') }}"{% if ep == 'explore.connect' %} class="on" aria-current="page"{% endif %}>{{ t('nav_connect') }}</a>
+              <span class="sep" aria-hidden="true">·</span>
+              <a href="{{ url_for('explore.report') }}"{% if ep == 'explore.report' %} class="on" aria-current="page"{% endif %}>{{ t('nav_report') }}</a>
+            </div>
+          </div>
+        </section>
+      </nav>
+      {% else %}
+      <nav id="site-nav" class="main-nav">
+        <a href="{{ url_for('auth.login') }}"{% if request.endpoint == 'auth.login' %} class="on" aria-current="page"{% endif %}>{{ t('login') }}</a>
+        <a href="{{ url_for('auth.register') }}"{% if request.endpoint == 'auth.register' %} class="on" aria-current="page"{% endif %}>{{ t('register') }}</a>
+      </nav>
+      {% endif %}
+    </div>
+  </header>
+  <main id="content" class="shell">
+    {% with messages = get_flashed_messages() %}
+      {% for message in messages %}
+        <p class="flash" role="status">{{ message }}</p>
+      {% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer shell">
+    <p>{{ t('disclaimer') }}</p>
+  </footer>
+  <script src="{{ url_for('static', filename='js/app.js') }}?v=22" defer></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

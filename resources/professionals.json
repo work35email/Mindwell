@@ -1,0 +1,56 @@
+{
+  "disclaimer": "FICTIONAL DEMO DIRECTORY. None of these people, clinics, or numbers are real.",
+  "people": [
+    {
+      "id": "p1",
+      "name": "A. Perera",
+      "phone": "0000 000 001",
+      "fictional": true,
+      "role": {
+        "en": "Counselling psychologist (fictional)",
+        "si": "උපදේශන මනෝවිද්‍යාඥ (ප්‍රබන්ධ)",
+        "ta": "ஆலோசனை உளவியலாளர் (கற்பனை)"
+      },
+      "city": {"en": "Colombo", "si": "කොළඹ", "ta": "கொழும்பு"},
+      "focus": {
+        "en": "Stress and life changes",
+        "si": "ආතතිය සහ ජීවිත වෙනස්කම්",
+        "ta": "மன அழுத்தம் மற்றும் வாழ்க்கை மாற்றங்கள்"
+      }
+    },
+    {
+      "id": "p2",
+      "name": "R. Selvan",
+      "phone": "0000 000 002",
+      "fictional": true,
+      "role": {
+        "en": "Women's wellness counsellor (fictional)",
+        "si": "කාන්තා සුවතා උපදේශක (ප්‍රබන්ධ)",
+        "ta": "பெண்கள் நல ஆலோசகர் (கற்பனை)"
+      },
+      "city": {"en": "Jaffna", "si": "යාපනය", "ta": "யாழ்ப்பாணம்"},
+      "focus": {
+        "en": "Listening support after difficult events",
+        "si": "දුෂ්කර සිදුවීම්වලින් පසු සවන් දීම",
+        "ta": "கடினமான நிகழ்வுகளுக்குப் பின் செவிசாய்த்தல்"
+      }
+    },
+    {
+      "id": "p3",
+      "name": "F. Nazeer",
+      "phone": "0000 000 003",
+      "fictional": true,
+      "role": {
+        "en": "Community counsellor (fictional)",
+        "si": "ප්‍රජා උපදේශක (ප්‍රබන්ධ)",
+        "ta": "சமூக ஆலோசகர் (கற்பனை)"
+      },
+      "city": {"en": "Kandy", "si": "මහනුවර", "ta": "கண்டி"},
+      "focus": {
+        "en": "Sleep, burnout, and daily structure",
+        "si": "නින්ද, දැවී යාම, සහ දින සැලැස්ම",
+        "ta": "தூக்கம், சோர்வு, மற்றும் நாள் அமைப்பு"
+      }
+    }
+  ]
+}

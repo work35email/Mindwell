@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}{{ t('nav_checkin') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head">
+    <h1 class="with-icon">{{ icon('smile', 22) }} {{ t('feeling_today') }}</h1>
+    <p class="lede">{{ t('checkin_lead') }}</p>
+  </header>
+  <form class="panel" method="post" data-mood-form>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    {% include "_date.html" %}
+    <p>{{ t('mood_pick') }}</p>
+    <div class="scale">
+      {% for value, emoji, key in mood_scale %}
+      <label class="choice mood">
+        <input type="radio" name="mood" value="{{ value }}" {% if selected_mood == value %}checked{% endif %} required>
+        <span class="emoji" aria-hidden="true">{{ emoji }}</span>
+        <small>{{ t(key) }}</small>
+      </label>
+      {% endfor %}
+    </div>
+    <p>{{ t('selected_mood') }}: <strong id="mood-selected-label">{% for value, emoji, key in mood_scale %}{% if selected_mood == value %}{{ emoji }} {{ t(key) }}{% endif %}{% endfor %}</strong></p>
+    <p class="with-icon">{{ icon('zap', 18) }} {{ t('energy') }}</p>
+    <div class="scale">
+      {% for value in [1,2,3,4,5] %}
+      <label class="choice">
+        <input type="radio" name="energy" value="{{ value }}" {% if row and row.energy == value %}checked{% endif %} required>
+        <span>{{ value }}</span>
+        <small>{{ t('energy_' ~ value) }}</small>
+      </label>
+      {% endfor %}
+    </div>
+    <p>{{ t('influence_prompt') }} <span class="hint">{{ t('optional') }}</span></p>
+    <div class="checks">
+      {% for name in influences %}
+      <label class="check">
+        <input type="checkbox" name="influence_{{ name }}" {% if row and name in row.influence_list() %}checked{% endif %}>
+        {{ t('influence_' + name) }}
+      </label>
+      {% endfor %}
+    </div>
+    <p>{{ t('feelings_more') }} <span class="hint">{{ t('optional') }}</span></p>
+    <div class="checks">
+      {% for name in emotions %}
+      <label class="check">
+        <input type="checkbox" name="emotion_{{ name }}" {% if row and name in row.emotion_list() %}checked{% endif %}>
+        <span class="emo" aria-hidden="true">{{ emotion_emoji.get(name, '') }}</span> {{ t('emotion_' + name) }}
+      </label>
+      {% endfor %}
+    </div>
+    <label for="note">{{ t('share_more') }} <span class="hint">{{ t('optional') }}</span></label>
+    <textarea id="note" name="note" maxlength="2000">{{ row.note_text() if row else '' }}</textarea>
+    <p class="hint">{{ t('note_hint') }}</p>
+    <button type="submit">{{ t('save_mood') }}</button>
+  </form>
+  {% with kind='checkin', delete_endpoint='wellness.delete_checkin' %}{% include "_history.html" %}{% endwith %}
+</section>
+{% endblock %}

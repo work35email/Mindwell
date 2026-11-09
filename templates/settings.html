@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}{{ t('settings_title') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head"><h1 class="with-icon">{{ icon('settings', 22) }} {{ t('settings_title') }}</h1></header>
+  <div class="split">
+    <form class="panel" method="post">
+      <h2 class="with-icon">{{ icon('languages', 20) }} {{ t('language') }}</h2>
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <label for="language">{{ t('language') }}</label>
+      <select id="language" name="language">
+        {% for code in languages %}
+        <option value="{{ code }}" {% if current_user.language == code %}selected{% endif %}>{{ t('language_' + code) }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit">{{ t('save') }}</button>
+      <p><a href="{{ url_for('auth.consent') }}">{{ t('change_consents') }}</a></p>
+    </form>
+    <section class="panel">
+      <h2>{{ t('settings_ai') }}</h2>
+      <p>{% if status.groq %}{{ t('ai_groq_on') }}{% else %}{{ t('ai_groq_off') }}{% endif %}</p>
+      <p class="meta">{{ t('groq_cloud_note') }}: {{ status.chat_model }} / {{ status.fast_model }}</p>
+      <p>{% if status.ollama.reachable %}{{ t('ai_ollama_on') }}{% else %}{{ t('ai_ollama_off') }}{% endif %}</p>
+      <p class="meta">{{ t('local_model') }}: {{ status.ollama_model }}</p>
+      {% if status.ollama.models %}
+      <p class="hint">{{ status.ollama.models|join(', ') }}</p>
+      {% endif %}
+      <p>{{ t('stt_note') }} {{ status.stt_model }}</p>
+      <p>{% if status.guard %}{{ t('guard_on') }}{% else %}{{ t('rules_only') }}{% endif %}</p>
+      {% if status.last_error %}<p class="hint">{{ t('ai_last_error') }}: {{ status.last_error }}</p>{% endif %}
+    </section>
+  </div>
+  <section class="panel" style="margin-top:1rem">
+    <h2>{{ t('account') }}</h2>
+    <p>{{ t('export_help') }}</p>
+    <form method="post" action="{{ url_for('wellness.export') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <button type="submit">{{ icon('file-down', 16) }} {{ t('export_json') }}</button>
+    </form>
+    <h2>{{ t('delete_account') }}</h2>
+    <p>{{ t('settings_delete_help') }}</p>
+    <form method="post" action="{{ url_for('wellness.remove_account') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <label for="confirm">{{ t('delete_prompt') }}</label>
+      <input id="confirm" name="confirm" type="text" autocomplete="off">
+      <button type="submit">{{ icon('trash-2', 16) }} {{ t('delete_account') }}</button>
+    </form>
+  </section>
+</section>
+{% endblock %}

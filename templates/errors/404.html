@@ -1,0 +1,3 @@
+{% extends "base.html" %}
+{% block title %}{{ t('page_missing') }}{% endblock %}
+{% block content %}<section class="page"><h1>{{ t('page_missing') }}</h1><p><a href="{{ url_for('wellness.home') }}">{{ t('nav_home') }}</a></p></section>{% endblock %}

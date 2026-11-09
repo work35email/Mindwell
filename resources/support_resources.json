@@ -1,0 +1,80 @@
+{
+  "verification_status": "UNVERIFIED",
+  "human_verified": false,
+  "public_pages_consulted": "2026-11-09",
+  "note": "Numbers were copied from public organisation pages on 2026-11-09 and were not confirmed by phone. A person must check every number and its hours before this demo is shown to anyone who might rely on it.",
+  "resources": [
+    {
+      "id": "police-119",
+      "kind": "emergency",
+      "phone": "119",
+      "name": {"en": "Police emergency", "si": "පොලිස් හදිසි ඇමතුම", "ta": "காவல் அவசர அழைப்பு"},
+      "hours": {"en": "Listed as 24 hours", "si": "පැය 24 ලෙස සඳහන්", "ta": "24 மணி என பட்டியல்"},
+      "source_url": "https://www.safecircles.lk/english/where-to-get-help",
+      "source_note": "Safe Circles public page. Not re-confirmed by phone."
+    },
+    {
+      "id": "nimh-1926",
+      "kind": "listening",
+      "phone": "1926",
+      "name": {"en": "National Mental Health Helpline (1926)", "si": "ජාතික මානසික සෞඛ්‍ය උදව් අංකය (1926)", "ta": "தேசிய மனநல உதவி எண் (1926)"},
+      "hours": {"en": "Hours not confirmed in this file", "si": "වේලාවන් මෙහි තහවුරු කර නැත", "ta": "நேரம் இந்த கோப்பில் உறுதி செய்யப்படவில்லை"},
+      "source_url": "https://srilankasumithrayo.lk/faq/",
+      "source_note": "Cited by Sri Lanka Sumithrayo and by UNHCR Sri Lanka as the NIMH hotline. Hours were not stated."
+    },
+    {
+      "id": "sumithrayo-mobile",
+      "kind": "listening",
+      "phone": "0707 308 308",
+      "name": {"en": "Sri Lanka Sumithrayo", "si": "ශ්‍රී ලංකා සුමිත්‍රයෝ", "ta": "இலங்கை சுமித்ரயோ"},
+      "hours": {"en": "Centre hours vary, often about 9am to 4pm", "si": "මධ්‍යස්ථාන වේලාවන් වෙනස් වේ, බොහෝ විට පෙ.ව. 9 සිට ප.ව. 4 දක්වා", "ta": "மைய நேரம் மாறுபடும், பெரும்பாலும் காலை 9 முதல் மாலை 4 வரை"},
+      "source_url": "https://srilankasumithrayo.lk/",
+      "source_note": "Shown on the Sumithrayo homepage. Confirm before a live demo."
+    },
+    {
+      "id": "sumithrayo-colombo",
+      "kind": "listening",
+      "phone": "011 269 6666",
+      "name": {"en": "Sumithrayo founding branch, Colombo", "si": "සුමිත්‍රයෝ ආරම්භක ශාඛාව, කොළඹ", "ta": "சுமித்ரயோ நிறுவனக் கிளை, கொழும்பு"},
+      "hours": {"en": "Daily 9am to 8pm, as listed on the contact page", "si": "සම්බන්ධතා පිටුවේ දිනපතා පෙ.ව. 9 සිට ප.ව. 8 දක්වා", "ta": "தொடர்பு பக்கத்தில் தினமும் காலை 9 முதல் இரவு 8 வரை"},
+      "source_url": "https://srilankasumithrayo.lk/contact-us/",
+      "source_note": "Founding branch line on the official contact page."
+    },
+    {
+      "id": "win-hotline",
+      "kind": "specialist",
+      "phone": "077 567 6555",
+      "name": {"en": "Women In Need 24-hour hotline", "si": "Women In Need පැය 24 උදව් අංකය", "ta": "Women In Need 24 மணி உதவி எண்"},
+      "hours": {"en": "Listed as 24 hours on the WIN contact page", "si": "WIN සම්බන්ධතා පිටුවේ පැය 24 ලෙස සඳහන්", "ta": "WIN தொடர்பு பக்கத்தில் 24 மணி என உள்ளது"},
+      "source_url": "https://www.winsl.net/contact-us/",
+      "source_note": "Official Women In Need contact page. Also listed by Safe Circles."
+    },
+    {
+      "id": "win-office",
+      "kind": "specialist",
+      "phone": "011 267 1411",
+      "name": {"en": "Women In Need, Colombo office", "si": "Women In Need කොළඹ කාර්යාලය", "ta": "Women In Need கொழும்பு அலுவலகம்"},
+      "hours": {"en": "Office hours were not copied into this file", "si": "කාර්යාල වේලාවන් මෙහි පිටපත් කර නැත", "ta": "அலுவலக நேரம் இந்த கோப்பில் இல்லை"},
+      "source_url": "https://www.winsl.net/contact-us/",
+      "source_note": "Official contact page also lists 011 267 1401."
+    },
+    {
+      "id": "womens-helpline-1938",
+      "kind": "specialist",
+      "phone": "1938",
+      "name": {"en": "Women's helpline", "si": "කාන්තා උදව් අංකය", "ta": "பெண்கள் உதவி எண்"},
+      "hours": {"en": "Hours not confirmed in this file", "si": "වේලාවන් මෙහි තහවුරු කර නැත", "ta": "நேரம் இந்த கோப்பில் உறுதி செய்யப்படவில்லை"},
+      "source_url": "https://www.safecircles.lk/english/where-to-get-help",
+      "source_note": "Listed on Safe Circles as the women's helpline."
+    },
+    {
+      "id": "ccc-1333",
+      "kind": "listening",
+      "phone": "1333",
+      "name": {"en": "CCC crisis support, as cited by Sumithrayo", "si": "CCC අර්බුද සහාය, සුමිත්‍රයෝ උපුටා දක්වන පරිදි", "ta": "CCC நெருக்கடி ஆதரவு, சுமித்ரயோ மேற்கோள்"},
+      "hours": {"en": "Hours not confirmed in this file", "si": "වේලාවන් මෙහි තහවුරු කර නැත", "ta": "நேரம் இந்த கோப்பில் உறுதி செய்யப்படவில்லை"},
+      "source_url": "https://srilankasumithrayo.lk/dymoacho/2024/01/The-Suicidal-Mind_Final.pdf",
+      "source_note": "Printed in a Sumithrayo booklet. Confirm with CCC before use."
+    }
+  ]
+}

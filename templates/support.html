@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ t('support_title') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head">
+    <h1 class="with-icon">{{ icon('life-buoy', 22) }} {{ t('support_title') }}</h1>
+    <p class="lede">{{ t('support_intro') }}</p>
+  </header>
+  {% if unverified %}<p class="banner">{{ t('unverified_banner') }}</p>{% endif %}
+  <p>{{ t('verify_before_use') }}</p>
+  <div class="grid">
+    {% for row in rows %}
+    <article class="card resource">
+      <p class="meta">{{ row.kind }}</p>
+      <strong><a href="tel:{{ row.phone|replace(' ', '') }}">{{ row.phone }}</a></strong>
+      <h2>{{ row.name }}</h2>
+      <p>{{ t('hours_label') }}: {{ row.hours }}</p>
+      {% if row.source_url %}<p class="hint"><a href="{{ row.source_url }}">{{ t('source_label') }}</a> · {{ row.source_note }}</p>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}{{ t('journal_new') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head">
+    <h1 class="with-icon">{{ icon('notebook-pen', 22) }} {{ t('journal_edit') if editing is defined and editing else t('journal_new') }}</h1>
+    <p class="banner">{{ t('beta_voice') }}</p>
+    <p>{{ t('edit_transcript') }}</p>
+  </header>
+  <form class="panel" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <input type="hidden" id="journal-source" name="source" value="{{ source }}">
+    <div class="row-actions">
+      <button type="button" class="secondary" id="record"
+              data-recording="{{ t('recording') }}"
+              data-transcribing="{{ t('transcribing') }}"
+              data-edit="{{ t('edit_transcript') }}"
+              data-denied="{{ t('mic_denied') }}"
+              data-needs-groq="{{ t('voice_needs_groq') }}">{{ icon('mic', 16) }} {{ t('journal_record') }}</button>
+      <button type="button" class="secondary" id="stop" hidden>{{ t('journal_stop') }}</button>
+    </div>
+    <p id="rec-status" class="hint" role="status"></p>
+    <label for="journal-language">{{ t('journal_language') }}</label>
+    <select id="journal-language" name="language">
+      {% for code in languages %}
+      <option value="{{ code }}" {% if code == language %}selected{% endif %}>{{ t('language_' + code) }}</option>
+      {% endfor %}
+    </select>
+    <p class="hint with-icon">{{ icon('lightbulb', 16) }} {{ t('prompt_label') }}</p>
+    <div class="prompts">
+      <button type="button" class="secondary prompt" data-prompt="{{ t('prompt_heavy') }}">{{ t('prompt_heavy') }}</button>
+      <button type="button" class="secondary prompt" data-prompt="{{ t('prompt_helped') }}">{{ t('prompt_helped') }}</button>
+      <button type="button" class="secondary prompt" data-prompt="{{ t('prompt_body') }}">{{ t('prompt_body') }}</button>
+    </div>
+    <label for="journal-body">{{ t('note') }}</label>
+    <textarea id="journal-body" name="body" maxlength="8000" required placeholder="{{ t('journal_placeholder') }}">{{ draft }}</textarea>
+    <label class="check">
+      <input type="checkbox" name="reflect" value="on">
+      {{ t('journal_reflect') }}
+    </label>
+    <button type="submit">{{ t('journal_save') }}</button>
+  </form>
+</section>
+{% endblock %}

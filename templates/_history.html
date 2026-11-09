@@ -1,0 +1,33 @@
+{% if history %}
+<section class="panel">
+  <h2>{{ t('saved_entries') }}</h2>
+  <table>
+    <tbody>
+      {% for item in history %}
+      <tr>
+        <td>{{ item.date.isoformat() }}</td>
+        <td>
+          {% if kind == 'checkin' %}
+            {{ item.face() }} {{ t('mood_' ~ item.mood) }}
+            {% for name in item.emotion_list() %}<span class="emo" title="{{ t('emotion_' + name) }}">{{ emotion_emoji[name] }}</span>{% endfor %}
+          {% elif kind == 'sleep' %}
+            {{ item.hours }} {{ t('hours_short') }} · {{ t('quality_' ~ item.quality) }}
+          {% elif kind == 'stress' %}
+            {{ item.stress }} · {{ t('stress_' ~ item.stress) }}
+          {% elif kind == 'cycle' %}
+            {{ t('cycle_day') }} {{ item.cycle_day }}
+          {% endif %}
+        </td>
+        <td class="history-actions">
+          <a href="{{ url_for(request.endpoint, date=item.date.isoformat()) }}">{{ icon('pencil', 16) }} {{ t('edit') }}</a>
+          <form method="post" action="{{ url_for(delete_endpoint, entry_id=item.id) }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="textish">{{ icon('trash-2', 16) }} {{ t('delete') }}</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endif %}

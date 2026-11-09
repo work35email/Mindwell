@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}{{ t('journal_title') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <p><a class="with-icon" href="{{ url_for('journal.index') }}">{{ icon('arrow-left', 16) }} {{ t('back') }}</a></p>
+  <header class="page-head">
+    <h1>{{ entry.created_at|short_dt }}</h1>
+    <p class="meta">{{ t('source_' + entry.source) }} · {{ t('language_' + entry.shown_language()) }}</p>
+  </header>
+  <article class="panel">
+    <p style="white-space:pre-wrap">{{ entry.body_text() }}</p>
+    <p class="history-actions">
+      <a class="button secondary" href="{{ url_for('journal.edit', journal_id=entry.id) }}">{{ icon('pencil', 16) }} {{ t('edit') }}</a>
+      <form method="post" action="{{ url_for('journal.remove', journal_id=entry.id) }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button type="submit" class="textish">{{ icon('trash-2', 16) }} {{ t('delete') }}</button>
+      </form>
+    </p>
+  </article>
+  <article class="panel" style="margin-top:1rem">
+    <h2>{{ t('reflection') }}</h2>
+    {% if entry.summary_text() %}
+      <p style="white-space:pre-wrap">{{ entry.summary_text() }}</p>
+      {% if entry.summary_provider %}<p class="meta">{{ t('provider_' + entry.summary_provider) }}</p>{% endif %}
+    {% else %}
+      <p class="hint">{{ t('none_yet') }}</p>
+    {% endif %}
+    <form method="post" action="{{ url_for('journal.summarize', journal_id=entry.id) }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <button type="submit">{{ t('make_reflection') }}</button>
+    </form>
+  </article>
+</section>
+{% endblock %}

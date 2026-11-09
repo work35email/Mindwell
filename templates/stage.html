@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ t('nav_' + audience) }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head">
+    <h1 class="with-icon">{{ icon('baby' if audience == 'pregnancy' else 'sprout', 22) }} {{ t('nav_' + audience) }}</h1>
+    <p class="lede">{{ t('stage_intro_' + audience) }}</p>
+    <p class="banner">{{ t('draft_banner') }}</p>
+  </header>
+  <div class="grid cards">
+    {% for card in cards %}
+    <article class="card">
+      <h2>{{ card.title }}</h2>
+      <p class="meta">{{ t('minutes', count=card.minutes) }}</p>
+      <p>{{ card.preview }}…</p>
+      <a href="{{ url_for('explore.library_card', card_id=card.id) }}">{{ t('open_card') }}</a>
+    </article>
+    {% endfor %}
+  </div>
+  <p>{{ t('stage_next') }}</p>
+  <p class="row-actions">
+    <a class="button" href="{{ url_for('journal.create') }}">{{ icon('notebook-pen', 16) }} {{ t('journal_new') }}</a>
+    <a class="button secondary" href="{{ url_for('explore.support') }}">{{ icon('life-buoy', 16) }} {{ t('nav_support') }}</a>
+    <a class="button secondary" href="{{ url_for('explore.connect') }}">{{ icon('user-round-check', 16) }} {{ t('nav_connect') }}</a>
+  </p>
+</section>
+{% endblock %}

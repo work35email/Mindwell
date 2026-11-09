@@ -1,0 +1,188 @@
+{
+  "review_status": "DRAFT",
+  "note": "Not clinician reviewed. Sinhala and Tamil are draft translations and need a native speaker.",
+  "cards": [
+    {
+      "id": "box-breathing",
+      "topics": ["breathing", "stress", "grounding"],
+      "audiences": ["general"],
+      "minutes": 3,
+      "draft": true,
+      "titles": {"en": "Box breathing", "si": "කොටු හුස්ම", "ta": "பெட்டி மூச்சு"},
+      "bodies": {
+        "en": "Sit in a way that feels steady. Breathe in through the nose for a count of 4. Hold for 4. Breathe out for 4. Wait for 4. Repeat four times. If your mind wanders, return to the count. Stop if you feel dizzy. This is a general wellness practice, not a treatment.",
+        "si": "ස්ථිර ලෙස වාඩි වෙන්න. නාසයෙන් 4 ගණන් හුස්ම ගන්න. 4 ගණන් රඳවන්න. 4 ගණන් පිට කරන්න. 4 ගණන් රැඳෙන්න. 4 වතාවක් කරන්න. සිත විසුරුණොත් නැවත ගණනට එන්න. කරකැවිල්ලක් නම් නවත්වන්න. මෙය සාමාන්‍ය සුවතා පුරුද්දකි. ප්‍රතිකාරයක් නොවේ.",
+        "ta": "நிலையாக அமருங்கள். மூக்கால் 4 எண்ணிக்கை மூச்சு இழுக்கவும். 4 பிடிக்கவும். 4 விடவும். 4 காத்திருக்கவும். 4 முறை செய்யவும். மனம் சிதறினால் எண்ணிக்கைக்குத் திரும்புங்கள். தலை சுற்றல் இருந்தால் நிறுத்துங்கள். இது பொதுவான நலப் பழக்கம். சிகிச்சை அல்ல."
+      }
+    },
+    {
+      "id": "grounding-54321",
+      "topics": ["grounding", "stress", "mood"],
+      "audiences": ["general"],
+      "minutes": 4,
+      "draft": true,
+      "titles": {"en": "5-4-3-2-1 grounding", "si": "5-4-3-2-1 ස්ථාවර කිරීම", "ta": "5-4-3-2-1 நிலைப்படுத்தல்"},
+      "bodies": {
+        "en": "Name 5 things you can see, 4 you can feel, 3 you can hear, 2 you can smell, and 1 you can taste. Move slowly. This can help when the day feels loud. It does not treat a condition. If you feel unsafe, contact a person or open Support.",
+        "si": "පෙනෙන දේවල් 5ක්, දැනෙන දේ 4ක්, ඇසෙන දේ 3ක්, ගඳ දැනෙන දේ 2ක්, රස දැනෙන දේ 1ක් කියන්න. සෙමින් යන්න. දවස ඝෝෂාකාරී විට මෙය උදව් විය හැක. රෝගයක් ප්‍රතිකාර නොකරයි. අනාරක්ෂිත නම් කෙනෙකු අමතන්න හෝ සහාය විවෘත කරන්න.",
+        "ta": "பார்க்கும் 5, தொடும் 4, கேட்கும் 3, மணக்கும் 2, சுவைக்கும் 1 என்று சொல்லுங்கள். மெதுவாகச் செய்யுங்கள். நாள் சத்தமாக இருக்கும்போது இது உதவலாம். ஒரு நிலையை இது சிகிச்சை செய்யாது. பாதுகாப்பற்றால் ஒருவரை அழையுங்கள் அல்லது ஆதரவைத் திறக்கவும்."
+      }
+    },
+    {
+      "id": "wind-down",
+      "topics": ["sleep"],
+      "audiences": ["general"],
+      "minutes": 10,
+      "draft": true,
+      "titles": {"en": "A short wind-down", "si": "කෙටි නින්දට සූදානම", "ta": "ஒரு குறுகிய தூக்க ஏற்பாடு"},
+      "bodies": {
+        "en": "About an hour before sleep, dim lights you can control and put the phone away from the pillow. Pick one repeated step: wash your face, stretch your shoulders, or write tomorrow's first task. Keep the room cool if you can. This is a sleep habit, not a cure for insomnia.",
+        "si": "නිදාගැනීමට පැයකට පමණ පෙර, පාලනය කළ හැකි ලයිට් අඩු කර දුරකථනය කොට්ටයෙන් ඈත් කරන්න. එක පුරුද්දක් තෝරන්න: මුහුණ සේදීම, උරහිස් දිගහැරීම, හෝ හෙට පළමු කාර්යය ලිවීම. හැකි නම් කාමරය සිසිල්ව තබන්න. මෙය නින්දේ පුරුද්දකි. නිදි නොයාමේ ප්‍රතිකාරයක් නොවේ.",
+        "ta": "தூங்குவதற்கு ஒரு மணி முன், கட்டுப்படுத்தக்கூடிய விளக்குகளை மங்கலாக்கி தொலைபேசியை தலையணைக்கு அப்பால் வையுங்கள். ஒரே பழக்கத்தைத் தேர்ந்தெடுங்கள்: முகம் கழுவுதல், தோள் நீட்டுதல், அல்லது நாளைய முதல் வேலையை எழுதுதல். முடிந்தால் அறையை குளிர்ச்சியாக வையுங்கள். இது தூக்கப் பழக்கம். தூக்கமின்மைக்கு மருந்து அல்ல."
+      }
+    },
+    {
+      "id": "worry-window",
+      "topics": ["stress", "burnout", "journaling"],
+      "audiences": ["general"],
+      "minutes": 10,
+      "draft": true,
+      "titles": {"en": "A worry window", "si": "කනස්සල්ලට වේලාවක්", "ta": "கவலைக்கு ஒரு நேரம்"},
+      "bodies": {
+        "en": "Choose 10 minutes, not bedtime. Write worries down, one line each. Mark each as can act or cannot act today. For one item you can act on, write the smallest next step. Close the notes when the time ends. This does not replace talking to someone if you are in danger.",
+        "si": "නිදාගන්න වේලාව නොව, මිනිත්තු 10ක් තෝරන්න. කනස්සල්ල එක් පේළියකින් ලියන්න. අද කළ හැකිද නොහැකිද ලකුණු කරන්න. කළ හැකි එකකට ඊළඟ කුඩාම පියවර ලියන්න. වේලාව ඉවර වූ විට සටහන වසන්න. අනතුරේ නම් කෙනෙකු සමඟ කතා කිරීම මෙය ප්‍රතිස්ථාපනය නොකරයි.",
+        "ta": "தூக்க நேரம் அல்ல, 10 நிமிடம் தேர்ந்தெடுங்கள். கவலைகளை ஒரு வரியாக எழுதுங்கள். இன்று செய்யலாமா முடியாதா என்று குறியிடுங்கள். செய்யக்கூடிய ஒன்றுக்கு அடுத்த சிறிய படியை எழுதுங்கள். நேரம் முடிந்ததும் குறிப்பை மூடுங்கள். ஆபத்தில் இருந்தால் ஒருவருடன் பேசுவதற்கு இது மாற்றாகாது."
+      }
+    },
+    {
+      "id": "cycle-mood-notes",
+      "topics": ["cycle", "mood"],
+      "audiences": ["general"],
+      "minutes": 5,
+      "draft": true,
+      "titles": {"en": "Cycle day and mood", "si": "ඔසප් දිනය සහ මනෝභාවය", "ta": "சுழற்சி நாளும் மனநிலையும்"},
+      "bodies": {
+        "en": "If you want to, write the day of your cycle next to your mood. Some people notice patterns. A pattern in your own notes is not a diagnosis, a fertility prediction, or a reason to start or stop any care. Share the notes with a clinician only if you want them interpreted.",
+        "si": "ඔබට ඕනේ නම්, මනෝභාවය ළඟ ඔසප් දිනය ලියන්න. සමහර අය රටා දකී. ඔබේ සටහන්වල රටාවක් රෝග විනිශ්චයක්, සශ්‍රීකතා අනාවැකියක්, හෝ ප්‍රතිකාරයක් ආරම්භ කිරීමට හේතුවක් නොවේ. අර්ථ දැක්වීමට ඕනේ නම් පමණක් සායනික වෘත්තිකයෙකු සමඟ බෙදා ගන්න.",
+        "ta": "வேண்டுமானால் மனநிலை அருகில் சுழற்சி நாளை எழுதுங்கள். சிலர் போக்குகளைக் கவனிக்கிறார்கள். உங்கள் குறிப்பின் போக்கு நோய் கண்டறிதல், கருத்தரிப்பு கணிப்பு, அல்லது சிகிச்சையை தொடங்க அல்லது நிறுத்த காரணம் அல்ல. விளக்கம் வேண்டுமானால் மட்டும் மருத்துவரிடம் பகிரவும்."
+      }
+    },
+    {
+      "id": "gentle-movement",
+      "topics": ["movement", "mood", "burnout"],
+      "audiences": ["general"],
+      "minutes": 10,
+      "draft": true,
+      "titles": {"en": "Ten easy minutes", "si": "පහසු මිනිත්තු දහය", "ta": "எளிய பத்து நிமிடம்"},
+      "bodies": {
+        "en": "Walk, stretch, or sway to one song. Stop if something hurts. The aim is a slightly warmer body, not a workout target. On very heavy days, stretching on the floor counts. This is general movement, not physiotherapy.",
+        "si": "එක ගීතයකට ඇවිදින්න, දිගහරින්න, හෝ පැද්දෙන්න. රිදෙනවා නම් නවත්වන්න. ඉලක්කය ටිකක් උණුසුම් ශරීරයකි, ව්‍යායාම ඉලක්කයක් නොවේ. ඉතා බර දිනවල බිම දිගහැරීම ප්‍රමාණවත්. මෙය සාමාන්‍ය චලනයකි. භෞතචිකිත්සාවක් නොවේ.",
+        "ta": "ஒரு பாடலுக்கு நடக்கவும், நீட்டவும், அல்லது ஆடவும். வலித்தால் நிறுத்துங்கள். இலக்கு சற்று சூடான உடல், உடற்பயிற்சி இலக்கு அல்ல. மிக கனமான நாளில் தரையில் நீட்டுவதும் போதும். இது பொது அசைவு. இயன்முறை சிகிச்சை அல்ல."
+      }
+    },
+    {
+      "id": "boundary-sentence",
+      "topics": ["boundaries", "stress"],
+      "audiences": ["general"],
+      "minutes": 5,
+      "draft": true,
+      "titles": {"en": "One boundary sentence", "si": "එක් සීමා වාක්‍යයක්", "ta": "ஒரு எல்லை வாக்கியம்"},
+      "bodies": {
+        "en": "A boundary can be one sentence: I can talk at 6, not right now. You do not owe a long explanation. If saying it would be unsafe, skip this card and open Support. Practising a sentence is not a substitute for help when someone is hurting you.",
+        "si": "සීමාවක් එක් වාක්‍යයක් විය හැක: මට 6ට කතා කළ හැක, දැන් නොවේ. දිගු පැහැදිලි කිරීමක් ඔබ ණය නොවේ. එය කීම අනාරක්ෂිත නම් මෙම කාඩ්පත මඟ හරින්න, සහාය විවෘත කරන්න. වාක්‍යයක් පුහුණු කිරීම, කෙනෙකු ඔබට රිදවන විට උදව් වෙනුවට නොවේ.",
+        "ta": "எல்லை ஒரு வாக்கியமாக இருக்கலாம்: என்னால் 6 மணிக்கு பேச முடியும், இப்போது அல்ல. நீண்ட விளக்கம் நீங்கள் தர வேண்டியதில்லை. சொல்வது பாதுகாப்பற்றால் இந்த அட்டையை விட்டு ஆதரவைத் திறக்கவும். வாக்கியம் பயிற்சி, யாராவது உங்களை காயப்படுத்தும்போது உதவிக்கு மாற்றாகாது."
+      }
+    },
+    {
+      "id": "journal-prompt",
+      "topics": ["journaling", "mood"],
+      "audiences": ["general"],
+      "minutes": 8,
+      "draft": true,
+      "titles": {"en": "Three lines", "si": "පේළි තුන", "ta": "மூன்று வரிகள்"},
+      "bodies": {
+        "en": "Write three lines: what happened, what you felt in the body, and one thing that would make the next hour a little kinder. Do not force a silver lining. You can delete the entry later from Settings. This is reflection, not therapy.",
+        "si": "පේළි තුනක් ලියන්න: සිදු වූ දේ, ශරීරයේ දැනුණු දේ, සහ ඊළඟ පැය ටිකක් මෘදු කරන එක දෙයක්. බලෙන් හොඳ පැත්තක් සොයන්න එපා. පසුව සැකසුම් වලින් සටහන මැකිය හැක. මෙය පරාවර්තනයකි. චිකිත්සාවක් නොවේ.",
+        "ta": "மூன்று வரி எழுதுங்கள்: என்ன நடந்தது, உடலில் என்ன உணர்ந்தீர்கள், அடுத்த மணியை சற்று மென்மையாக்கும் ஒன்று. நல்ல பக்கத்தை வலுக்கட்டாயமாகத் தேட வேண்டாம். பிறகு அமைப்பில் குறிப்பை நீக்கலாம். இது பிரதிபலிப்பு. சிகிச்சை அல்ல."
+      }
+    },
+    {
+      "id": "postpartum-rest",
+      "topics": ["pregnancy", "sleep", "connection"],
+      "audiences": ["pregnancy"],
+      "minutes": 4,
+      "draft": true,
+      "titles": {"en": "Rest after birth", "si": "උපතින් පසු විවේකය", "ta": "பிறப்புக்குப் பின் ஓய்வு"},
+      "bodies": {
+        "en": "Draft education only. Rest, food, and another adult holding the baby for one hour are practical needs. Heavy bleeding, fever, chest pain, thoughts of harm, or feeling unable to cope are reasons to contact a maternity clinician or emergency care now. This card cannot assess you.",
+        "si": "කෙටුම්පත් අධ්‍යාපනය පමණි. විවේකය, ආහාර, සහ තවත් වැඩිහිටියෙකු පැයක් දරුවා ඇල්ලීම ප්‍රායෝගික අවශ්‍යතා වේ. වැඩි ලේ වහනය, උණ, පපුවේ වේදනාව, හානිකර සිතිවිලි, හෝ දරාගත නොහැකි බව නම් දැන්ම ප්‍රසව සායනික වෘත්තිකයෙකු හෝ හදිසි සේවය අමතන්න. මෙම කාඩ්පතට ඔබව තක්සේරු කළ නොහැක.",
+        "ta": "வரைவு கல்வி மட்டும். ஓய்வு, உணவு, இன்னொரு பெரியவர் ஒரு மணி நேரம் குழந்தையை வைத்திருப்பது நடைமுறை தேவை. அதிக இரத்தப்போக்கு, காய்ச்சல், நெஞ்சு வலி, தீங்கு எண்ணம், அல்லது தாங்க முடியாமை இருந்தால் இப்போதே மகப்பேறு மருத்துவரையோ அவசர சேவையையோ அணுகவும். இந்த அட்டை உங்களை மதிப்பிடாது."
+      }
+    },
+    {
+      "id": "menopause-sleep",
+      "topics": ["menopause", "sleep"],
+      "audiences": ["menopause"],
+      "minutes": 4,
+      "draft": true,
+      "titles": {"en": "Heat and sleep", "si": "උණුසුම සහ නින්ද", "ta": "வெப்பமும் தூக்கமும்"},
+      "bodies": {
+        "en": "Draft education only. Night heat can break sleep. A cooler room, a spare shirt within reach, and a steady wake time are common self-care steps. Treatment choices, including hormones, belong with a clinician. This card does not recommend medication.",
+        "si": "කෙටුම්පත් අධ්‍යාපනය පමණි. රාත්‍රී උණුසුම නින්ද කඩා දැමිය හැක. සිසිල් කාමරයක්, අත ළඟ අමතර කමිසයක්, සහ ස්ථිර අවදි වන වේලාවක් පොදු ස්වයං සුවතා පියවර වේ. හෝමෝන ඇතුළු ප්‍රතිකාර තේරීම් සායනික වෘත්තිකයෙකු සමඟය. මෙම කාඩ්පත ඖෂධ නිර්දේශ නොකරයි.",
+        "ta": "வரைவு கல்வி மட்டும். இரவு வெப்பம் தூக்கத்தை உடைக்கலாம். குளிர்ந்த அறை, கை எட்டும் இடத்தில் உதிரி சட்டை, நிலையான எழுச்சி நேரம் ஆகியவை பொதுவான சுய பராமரிப்பு. ஹார்மோன் உட்பட சிகிச்சை தேர்வு மருத்துவரிடம். இந்த அட்டை மருந்து பரிந்துரைக்காது."
+      }
+    },
+    {
+      "id": "pregnancy-day",
+      "topics": ["pregnancy", "mood"],
+      "audiences": ["pregnancy"],
+      "minutes": 5,
+      "draft": true,
+      "titles": {"en": "One ordinary day", "si": "එක් සාමාන්‍ය දවසක්", "ta": "ஒரு சாதாரண நாள்"},
+      "bodies": {
+        "en": "Draft education only. Note sleep, food, and one feeling in your own words. Share that note with a maternity clinician only if you choose to. Sudden severe headache, bleeding, or thoughts of harm need a person now, not this card.",
+        "si": "කෙටුම්පත් අධ්‍යාපනය පමණි. නින්ද, ආහාර, සහ එක් හැඟීමක් ඔබේ වචනවලින් සටහන් කරන්න. එම සටහන ප්‍රසව සායනික වෘත්තිකයෙකු සමඟ බෙදා ගන්නේ ඔබ තෝරාගත්තොත් පමණි. හදිසි දරුණු හිසරදය, ලේ වහනය, හෝ හානිකර සිතිවිලි නම් මෙම කාඩ්පත නොව දැන්ම පුද්ගලයෙකු අවශ්‍යයි.",
+        "ta": "வரைவு கல்வி மட்டும். தூக்கம், உணவு, ஒரு உணர்வை உங்கள் சொற்களில் குறிக்கவும். அந்தக் குறிப்பை மகப்பேறு மருத்துவரிடம் நீங்கள் தேர்ந்தெடுத்தால் மட்டும் பகிரவும். திடீர் கடுமையான தலைவலி, இரத்தப்போக்கு, அல்லது தீங்கு எண்ணம் இருந்தால் இந்த அட்டை அல்ல, இப்போதே ஒரு நபர் வேண்டும்."
+      }
+    },
+    {
+      "id": "menopause-day",
+      "topics": ["menopause", "mood", "journaling"],
+      "audiences": ["menopause"],
+      "minutes": 6,
+      "draft": true,
+      "titles": {"en": "A midlife note", "si": "මැදිවියේ සටහනක්", "ta": "ஒரு நடுவயது குறிப்பு"},
+      "bodies": {
+        "en": "Draft education only. Write what changed today: sleep, heat, mood, or energy. This is a personal log, not a diagnosis of menopause. Questions about hormones or other treatment belong with a clinician.",
+        "si": "කෙටුම්පත් අධ්‍යාපනය පමණි. අද වෙනස් වූ දේ ලියන්න: නින්ද, උණුසුම, මනෝභාවය, හෝ ශක්තිය. මෙය පෞද්ගලික සටහනකි. ආර්තවහරණයේ රෝග විනිශ්චයක් නොවේ. හෝමෝන හෝ වෙනත් ප්‍රතිකාර ගැන ප්‍රශ්න සායනික වෘත්තිකයෙකු සමඟය.",
+        "ta": "வரைவு கல்வி மட்டும். இன்று மாறியதை எழுதுங்கள்: தூக்கம், வெப்பம், மனநிலை, அல்லது ஆற்றல். இது தனிப்பட்ட குறிப்பு. மாதவிடாய் நிறுத்த நோய் கண்டறிதல் அல்ல. ஹார்மோன் அல்லது பிற சிகிச்சை கேள்விகள் மருத்துவரிடம்."
+      }
+    },
+    {
+      "id": "ask-for-help",
+      "topics": ["connection", "burnout"],
+      "audiences": ["general"],
+      "minutes": 5,
+      "draft": true,
+      "titles": {"en": "Ask for one specific thing", "si": "එක් නිශ්චිත දෙයක් ඉල්ලන්න", "ta": "ஒரு குறிப்பிட்ட உதவியைக் கேளுங்கள்"},
+      "bodies": {
+        "en": "Pick one person and one task, such as asking someone to bring dinner on Thursday. Specific asks are easier to answer than saying you are not coping. If there is nobody to ask, the Support page lists listening services. This is not a clinical referral.",
+        "si": "එක් පුද්ගලයෙකු සහ එක් කාර්යයක් තෝරන්න. උදාහරණයක් ලෙස බ්‍රහස්පතින්දා රාත්‍රී ආහාරය ගෙනෙන්න කියා ඉල්ලීම. නිශ්චිත ඉල්ලීමකට පිළිතුරු දීම පහසුය. ඉල්ලන්න කෙනෙකු නැත්නම් සහාය පිටුවේ සවන් දෙන සේවා ඇත. මෙය සායනික යොමුවක් නොවේ.",
+        "ta": "ஒரு நபரையும் ஒரு வேலையையும் தேர்ந்தெடுங்கள். உதாரணமாக வியாழன் இரவு உணவு கொண்டு வரச் சொல்வது. குறிப்பிட்ட கேள்விக்கு பதில் எளிது. கேட்க யாரும் இல்லை என்றால் ஆதரவு பக்கத்தில் கேட்கும் சேவைகள் உள்ளன. இது மருத்துவ பரிந்துரை அல்ல."
+      }
+    },
+    {
+      "id": "one-small-task",
+      "topics": ["burnout", "mood", "stress"],
+      "audiences": ["general"],
+      "minutes": 10,
+      "draft": true,
+      "titles": {"en": "One small task", "si": "එක් කුඩා කාර්යයක්", "ta": "ஒரு சிறிய வேலை"},
+      "bodies": {
+        "en": "When everything feels like too much, choose a task under 10 minutes with a clear end, such as filling a water bottle or clearing one surface. Then stop. Resting afterwards is part of the plan. This does not measure your worth or your health.",
+        "si": "සියල්ල වැඩි වූ විට, පැහැදිලි අවසානයක් ඇති මිනිත්තු 10ට අඩු කාර්යයක් තෝරන්න. ජල බෝතලය පිරවීම හෝ එක් මතුපිටක් ඉවත් කිරීම වැනි. ඊට පස්සේ නවත්වන්න. පසුව විවේක ගැනීම සැලැස්මේ කොටසකි. මෙය ඔබේ වටිනාකම හෝ සෞඛ්‍යය මනින්නේ නැත.",
+        "ta": "எல்லாம் அதிகமாகத் தோன்றினால், தெளிவான முடிவுள்ள 10 நிமிடத்துக்குள் ஒரு வேலையைத் தேர்ந்தெடுங்கள். தண்ணீர் பாட்டில் நிரப்புதல் அல்லது ஒரு மேசையை ஒழுங்குபடுத்துதல் போல. பிறகு நிறுத்துங்கள். அதன் பின் ஓய்வு திட்டத்தின் பகுதி. இது உங்கள் மதிப்பையோ ஆரோக்கியத்தையோ அளக்காது."
+      }
+    }
+  ]
+}

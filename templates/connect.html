@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ t('connect_title') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head">
+    <h1 class="with-icon">{{ icon('user-round-check', 22) }} {{ t('connect_title') }}</h1>
+    <p class="lede">{{ t('connect_intro') }}</p>
+    <p class="banner">{{ t('fictional_banner') }}</p>
+  </header>
+  <div class="grid cards">
+    {% for person in people %}
+    <article class="card">
+      <h2>{{ person.name }}</h2>
+      <p>{{ person.role }}</p>
+      <p>{{ t('city_label') }}: {{ person.city }}</p>
+      <p>{{ t('focus_label') }}: {{ person.focus }}</p>
+      <p class="meta">{{ person.phone }} · {{ t('fictional_phone') }}</p>
+    </article>
+    {% endfor %}
+  </div>
+  <p><a class="button" href="{{ url_for('explore.report') }}">{{ t('nav_report') }}</a></p>
+</section>
+{% endblock %}

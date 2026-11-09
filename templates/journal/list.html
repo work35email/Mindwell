@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ t('journal_title') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head">
+    <h1 class="with-icon">{{ icon('notebook-pen', 22) }} {{ t('journal_title') }}</h1>
+    <a class="button" href="{{ url_for('journal.create') }}">{{ icon('plus', 16) }} {{ t('journal_new') }}</a>
+  </header>
+  {% if entries %}
+  <div class="grid">
+    {% for entry in entries %}
+    <article class="card">
+      <p class="meta">{{ entry.created_at|short_dt }} · {{ t('source_' + entry.source) }} · {{ t('language_' + entry.language) }}</p>
+      <p>{{ entry.preview }}</p>
+      <p class="history-actions">
+        <a href="{{ url_for('journal.detail', journal_id=entry.id) }}">{{ t('open_card') }}</a>
+        <a href="{{ url_for('journal.edit', journal_id=entry.id) }}">{{ icon('pencil', 16) }} {{ t('edit') }}</a>
+        <form method="post" action="{{ url_for('journal.remove', journal_id=entry.id) }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button type="submit" class="textish">{{ icon('trash-2', 16) }} {{ t('delete') }}</button>
+        </form>
+      </p>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>{{ t('empty_journal') }}</p>
+  {% endif %}
+</section>
+{% endblock %}

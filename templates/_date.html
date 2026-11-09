@@ -1,0 +1,16 @@
+<label id="entry-date-label" for="entry-date-btn">{{ t('entry_date') }}</label>
+<div class="date-field" data-date-field data-value="{{ entry_date.isoformat() }}" data-max="{{ today.isoformat() }}">
+  <input id="entry-date" name="date" type="hidden" value="{{ entry_date.isoformat() }}" required>
+  <button type="button" id="entry-date-btn" class="date-trigger" aria-haspopup="dialog" aria-expanded="false" aria-controls="entry-cal">
+    <span class="date-readout"></span>
+  </button>
+  <div id="entry-cal" class="date-pop" role="dialog" aria-label="{{ t('entry_date') }}" hidden>
+    <div class="date-nav">
+      <button type="button" class="date-step" data-date-prev aria-label="{{ t('date_prev') }}">‹</button>
+      <strong class="date-title"></strong>
+      <button type="button" class="date-step" data-date-next aria-label="{{ t('date_next') }}">›</button>
+    </div>
+    <div class="date-week"></div>
+    <div class="date-grid"></div>
+  </div>
+</div>

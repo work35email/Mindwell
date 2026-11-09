@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}{{ t('plan_title') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head">
+    <h1 class="with-icon">{{ icon('clipboard-list', 22) }} {{ t('plan_title') }}</h1>
+    <p class="lede">{{ t('plan_intro') }}</p>
+    <p class="meta">{{ t('samples', count=signals.samples) }}</p>
+  </header>
+  {% if not signals.enough %}<p class="banner">{{ t('plan_empty') }}</p>{% endif %}
+  <section class="panel">
+    <h2>{{ t('care_steps') }}</h2>
+    {% if signals.codes %}
+    <ul>
+      {% for item in signals.codes %}
+      <li>
+        {% if item.value is not none %}
+          {{ t('signal_' + item.code, value=item.value) }}
+        {% else %}
+          {{ t('signal_' + item.code) }}
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>{{ t('plan_empty') }}</p>
+    {% endif %}
+  </section>
+  <h2>{{ t('your_plan') }}</h2>
+  <div class="grid cards">
+    {% for card in cards %}
+    <article class="card">
+      <h3>{{ card.title }}</h3>
+      <p class="meta">{{ t('minutes', count=card.minutes) }}</p>
+      <a href="{{ url_for('explore.library_card', card_id=card.id) }}">{{ t('open_card') }}</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

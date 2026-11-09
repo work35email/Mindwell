@@ -1,0 +1,10 @@
+<div class="resource-cards">
+  <p class="hint">{{ t('recommend_title') }} · {{ t('recommend_based') }}</p>
+  {% for card in cards %}
+  <a class="resource-card" href="{{ url_for('explore.library_card', card_id=card.id) }}">
+    <strong>{{ card.title }}</strong>
+    <span>{{ card.preview }}{% if card.minutes %} · {{ t('minutes_short', count=card.minutes) }}{% endif %}</span>
+    <em>{{ t('explore_resource') }}</em>
+  </a>
+  {% endfor %}
+</div>

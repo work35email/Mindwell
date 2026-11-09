@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <p><a class="with-icon" href="{{ url_for('explore.library') }}">{{ icon('arrow-left', 16) }} {{ t('back_library') }}</a></p>
+  <header class="page-head">
+    <h1>{{ title }}</h1>
+    <p class="meta">{{ t('minutes', count=card.minutes) }} · {{ t('card_draft') }}</p>
+  </header>
+  <article class="panel"><p style="white-space:pre-wrap">{{ body }}</p></article>
+  {% if explanation %}
+  <article class="panel" style="margin-top:1rem">
+    <h2>{{ t('explain_result') }}</h2>
+    <p style="white-space:pre-wrap">{{ explanation }}</p>
+    {% if provider %}<p class="meta">{{ t('provider_' + provider) }}</p>{% endif %}
+  </article>
+  {% endif %}
+  <form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <button type="submit">{{ t('library_explain') }}</button>
+  </form>
+</section>
+{% endblock %}

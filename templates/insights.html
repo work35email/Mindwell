@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}{{ t('insights_title') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head">
+    <h1 class="with-icon">{{ icon('chart-no-axes-combined', 22) }} {{ t('insights_title') }}</h1>
+    <p class="lede">{{ t('insights_cards') }}</p>
+    <nav class="filters">
+      <a class="{{ 'on' if days == 7 else '' }}" href="{{ url_for('explore.insights', days=7) }}">{{ t('range_7') }}</a>
+      <a class="{{ 'on' if days == 30 else '' }}" href="{{ url_for('explore.insights', days=30) }}">{{ t('range_month') }}</a>
+      <a class="{{ 'on' if days == 90 else '' }}" href="{{ url_for('explore.insights', days=90) }}">{{ t('range_90') }}</a>
+    </nav>
+  </header>
+  <div class="chart-grid">
+  {% for chart in charts.values() %}
+  <section class="panel">
+    <h2>{{ chart.title }}</h2>
+    <p class="hint">{{ chart.scale }}</p>
+    {{ chart.svg }}
+    {% if chart.points %}
+    <details>
+      <summary>{{ t('show_data') }}</summary>
+      <table>
+        {% for label, value in chart.points %}
+        <tr><td>{{ label }}</td><td>{{ value }}</td></tr>
+        {% endfor %}
+      </table>
+    </details>
+    {% else %}
+    <p>{{ t('no_data') }}</p>
+    {% endif %}
+  </section>
+  {% endfor %}
+  </div>
+  {% for item in correlations %}
+  <article class="card" style="margin-bottom:0.8rem">
+    <h2>{{ item.title }}</h2>
+    <p>{{ t(item.key) }}</p>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ t('nav_stress') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head"><h1 class="with-icon">{{ icon('brain', 22) }} {{ t('nav_stress') }}</h1></header>
+  <form class="panel" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    {% include "_date.html" %}
+    <p>{{ t('stress') }}</p>
+    <div class="scale">
+      {% for value in [1,2,3,4,5] %}
+      <label class="choice">
+        <input type="radio" name="stress" value="{{ value }}" {% if row and row.stress == value %}checked{% endif %} required>
+        <span>{{ value }}</span>
+        <small>{{ t('stress_' ~ value) }}</small>
+      </label>
+      {% endfor %}
+    </div>
+    <p>{{ t('stress_sources') }} <span class="hint">{{ t('optional') }}</span></p>
+    <div class="checks">
+      {% for name in tags %}
+      <label class="check">
+        <input type="checkbox" name="tag_{{ name }}" {% if row and name in row.tag_list() %}checked{% endif %}>
+        {{ t('tag_' + name) }}
+      </label>
+      {% endfor %}
+    </div>
+    <button type="submit">{{ t('save') }}</button>
+  </form>
+  {% with kind='stress', delete_endpoint='wellness.delete_stress' %}{% include "_history.html" %}{% endwith %}
+</section>
+{% endblock %}

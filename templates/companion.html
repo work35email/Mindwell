@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}{{ t('companion_title') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head">
+    <h1 class="with-icon">{{ icon('messages-square', 22) }} {{ t('companion_title') }}</h1>
+    <p class="lede">{{ t('companion_hint') }}</p>
+    <p class="hint">{{ t('companion_reminder') }}</p>
+  </header>
+  {% if missing %}
+  <p class="banner">{{ t('companion_consent') }} <a href="{{ url_for('auth.consent') }}">{{ t('change_consents') }}</a></p>
+  {% endif %}
+  <div class="panel chat-shell">
+    <div id="welcome" class="companion-welcome"{% if messages %} hidden{% endif %}>
+      <h2>{{ t('companion_hello') }}</h2>
+      <p>{{ t('companion_hello_body') }}</p>
+      <p class="hint">{{ t('companion_choose') }}</p>
+      <div class="mode-grid" role="group" aria-label="{{ t('companion_choose') }}">
+        {% for name in modes %}
+        <button type="button" class="mode-card{% if mode == name %} on{% endif %}" data-mode="{{ name }}">
+          <strong>{{ t('mode_' + name) }}</strong>
+          <span>{{ t('mode_' + name + '_help') }}</span>
+        </button>
+        {% endfor %}
+      </div>
+      <p class="hint">{{ t('companion_also') }}</p>
+    </div>
+    {% if messages %}
+    <ol class="thread" id="thread">
+      {% for message in messages %}
+      <li class="bubble {{ message.role }} level-{{ message.level }}">
+        <p>{{ message.content }}</p>
+        <span class="meta">{{ message.created_at|short_dt }}</span>
+        {% if message.level in ['crisis', 'abuse', 'medical'] %}
+        <a href="{{ url_for('explore.support') }}">{{ t('open_support') }}</a>
+        {% endif %}
+        {% if loop.last and message.role == 'assistant' and cards %}
+        {% include "_cards.html" %}
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+    {% else %}
+    <ol class="thread" id="thread" hidden></ol>
+    {% endif %}
+    <div id="suggestions" class="chips">
+      {% for item in suggestions %}
+      <button type="button" class="chip" data-text="{{ item.text }}">{{ item.label }}</button>
+      {% endfor %}
+    </div>
+    <form id="chat-form" class="composer" method="post"
+          data-error="{{ t('page_error') }}"
+          data-support="{{ t('open_support') }}"
+          data-recommend="{{ t('recommend_title') }}"
+          data-based="{{ t('recommend_based') }}"
+          data-open="{{ t('explore_resource') }}"
+          data-minutes="{{ t('minutes_short', count='{count}') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <input type="hidden" name="mode" id="companion-mode" value="{{ mode }}">
+      <label for="message">{{ t('companion_placeholder') }}</label>
+      <textarea id="message" name="message" maxlength="2000" {% if missing %}disabled{% endif %} required></textarea>
+      <div class="composer-actions">
+        <button type="submit" form="clear-chat" class="textish" id="clear-chat-button"{% if not messages %} hidden{% endif %}>{{ t('clear_chat') }}</button>
+        <button type="submit" {% if missing %}disabled{% endif %}>{{ t('companion_send') }}</button>
+      </div>
+    </form>
+    <form id="clear-chat" method="post" action="{{ url_for('companion.clear') }}" hidden>
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    </form>
+  </div>
+</section>
+{% endblock %}

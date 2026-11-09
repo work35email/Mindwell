@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}{{ t('report_title') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head">
+    <h1 class="with-icon">{{ icon('file-chart-column', 22) }} {{ t('report_title') }}</h1>
+    <p>{{ t('generated', when=generated) }}</p>
+    <p class="banner">{{ t('report_disclaimer') }}</p>
+    <p class="no-print">
+      <a class="button" href="javascript:window.print()">{{ t('report_print') }}</a>
+      {% if not include %}
+      <a class="button secondary" href="{{ url_for('explore.report', include='notes') }}">{{ t('report_include') }}</a>
+      {% endif %}
+    </p>
+  </header>
+  <div class="grid cards">
+    <article class="card"><h2>{{ t('avg_mood') }}</h2><p class="stat">{{ avg_mood if avg_mood is not none else '–' }}</p></article>
+    <article class="card"><h2>{{ t('avg_sleep') }}</h2><p class="stat">{{ avg_sleep if avg_sleep is not none else '–' }}</p></article>
+    <article class="card"><h2>{{ t('avg_stress') }}</h2><p class="stat">{{ avg_stress if avg_stress is not none else '–' }}</p></article>
+  </div>
+  <section class="panel" style="margin-top:1rem">
+    <h2>{{ t('notes_heading') }}</h2>
+    {% if notes %}
+      {% for note in notes %}
+      <p><span class="meta">{{ note.created_at|short_dt }}</span><br>{{ note.summary }}</p>
+      {% endfor %}
+    {% else %}
+      <p>{{ t('no_notes') }}</p>
+    {% endif %}
+  </section>
+  <section style="margin-top:1rem">
+    <h2>{{ t('nav_connect') }}</h2>
+    <p class="banner">{{ t('fictional_banner') }}</p>
+    <ul>
+      {% for person in people %}
+      <li>{{ person.name }} — {{ person.role }}, {{ person.city }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+</section>
+{% endblock %}

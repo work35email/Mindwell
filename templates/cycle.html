@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ t('nav_cycle') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head">
+    <h1 class="with-icon">{{ icon('calendar-heart', 22) }} {{ t('nav_cycle') }}</h1>
+    <p class="lede">{{ t('cycle_hint') }}</p>
+  </header>
+  <form class="panel" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    {% include "_date.html" %}
+    <label for="cycle_day">{{ t('cycle_day') }}</label>
+    <input id="cycle_day" name="cycle_day" type="number" min="1" max="60" value="{{ row.cycle_day if row else '' }}" required>
+    <label for="note">{{ t('cycle_note') }} <span class="hint">{{ t('optional') }}</span></label>
+    <textarea id="note" name="note" maxlength="2000">{{ row.note_text() if row else '' }}</textarea>
+    <p class="hint"><a href="{{ url_for('explore.insights') }}">{{ t('nav_insights') }}</a></p>
+    <button type="submit">{{ t('save') }}</button>
+  </form>
+  {% with kind='cycle', delete_endpoint='wellness.delete_cycle' %}{% include "_history.html" %}{% endwith %}
+</section>
+{% endblock %}

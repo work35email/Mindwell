@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ t('register_title') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page split">
+  <div>
+    <h1>{{ t('register_title') }}</h1>
+  </div>
+  <form class="panel" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label for="email">{{ t('email') }}</label>
+    <input id="email" name="email" type="email" autocomplete="username" required>
+    <label for="language">{{ t('language') }}</label>
+    <select id="language" name="language">
+      <option value="en">{{ t('language_en') }}</option>
+      <option value="si">{{ t('language_si') }}</option>
+      <option value="ta">{{ t('language_ta') }}</option>
+    </select>
+    <label for="password">{{ t('password') }}</label>
+    <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+    <p class="hint">{{ t('password_rule') }}</p>
+    <label for="confirm">{{ t('confirm_password') }}</label>
+    <input id="confirm" name="confirm" type="password" autocomplete="new-password" minlength="8" required>
+    <button type="submit">{{ t('register') }}</button>
+    <p><a href="{{ url_for('auth.login') }}">{{ t('have_account') }} {{ t('login') }}</a></p>
+  </form>
+</section>
+{% endblock %}

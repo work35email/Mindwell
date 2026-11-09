@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}{{ t('nav_home') }} · {{ t('app_name') }}{% endblock %}
+{% block content %}
+<section class="page">
+  <header class="page-head">
+    <h1 class="with-icon">{{ icon('house', 22) }} {{ t('nav_home') }}</h1>
+    <p class="lede">{{ t('dashboard_intro') }}</p>
+    {% if missing %}<p class="banner"><a href="{{ url_for('auth.consent') }}">{{ t('no_consents_banner') }}</a></p>{% endif %}
+  </header>
+  <section class="panel">
+    <h2>{{ t('feeling_today') }}</h2>
+    {% if today %}
+    <p class="stat"><span class="mood-face">{{ today.face() }}</span> <span class="score-label">{{ t('mood_' ~ today.mood) }}</span></p>
+    {% endif %}
+    <div class="scale">
+      {% for value, emoji, key in mood_scale %}
+      <a class="choice mood{% if today and today.mood == value %} on{% endif %}" href="{{ url_for('wellness.checkin', mood=value) }}">
+        <span class="emoji" aria-hidden="true">{{ emoji }}</span>
+        <small>{{ t(key) }}</small>
+      </a>
+      {% endfor %}
+    </div>
+    <p class="hint">{{ t('context_note') }}</p>
+    {% if cycle %}<p>{{ t('context_cycle', day=cycle.cycle_day) }}</p>{% endif %}
+    {% if today %}<p class="hint">{{ t('energy') }} {{ today.energy }} · {{ t('energy_' ~ today.energy) }}</p>{% endif %}
+    {% if not today and not cycle %}<p class="hint">{{ t('context_empty') }}</p>{% endif %}
+  </section>
+  <section class="panel">
+    <h2>{{ t('need_today') }}</h2>
+    <p class="row-actions">
+      <a class="button secondary" href="{{ url_for('wellness.checkin') }}">{{ icon('smile', 16) }} {{ t('mood') }}</a>
+      <a class="button secondary" href="{{ url_for('wellness.sleep') }}">{{ icon('moon-star', 16) }} {{ t('nav_sleep') }}</a>
+      <a class="button secondary" href="{{ url_for('wellness.stress') }}">{{ icon('brain', 16) }} {{ t('nav_stress') }}</a>
+      <a class="button secondary" href="{{ url_for('wellness.cycle') }}">{{ icon('calendar-heart', 16) }} {{ t('nav_cycle') }}</a>
+    </p>
+  </section>
+  <div class="grid metrics">
+    <article class="metric">
+      <h2 class="with-icon">{{ icon('smile', 20) }} {{ t('today') }}</h2>
+      {% if today %}
+        <p class="stat"><span class="mood-face">{{ today.face() }}</span> <span class="score-label">{{ t('mood_' ~ today.mood) }}</span></p>
+        <p class="hint">{{ t('energy') }} {{ today.energy }} · {{ t('energy_' ~ today.energy) }}</p>
+      {% else %}
+        <p>{{ t('checkin_missing') }}</p>
+      {% endif %}
+      <a class="button" href="{{ url_for('wellness.checkin') }}">{{ t('update_today') }}</a>
+    </article>
+    <article class="metric">
+      <h2>{{ t('streak', count=streak_count) }}</h2>
+      <p class="stat">{{ streak_count }}</p>
+    </article>
+    <article class="metric">
+      <h2 class="with-icon">{{ icon('moon-star', 20) }} {{ t('nav_sleep') }}</h2>
+      <p class="stat">{% if sleep %}{{ sleep.hours }} <span class="score-label">{{ t('hours_short') }}</span>{% else %}–{% endif %}</p>
+      {% if sleep %}<p class="hint">{{ t('sleep_quality') }} {{ sleep.quality }} · {{ t('quality_' ~ sleep.quality) }}</p>{% endif %}
+      <a href="{{ url_for('wellness.sleep') }}">{{ t('log_sleep') }}</a>
+    </article>
+    <article class="metric">
+      <h2 class="with-icon">{{ icon('brain', 20) }} {{ t('nav_stress') }}</h2>
+      <p class="stat">{% if stress %}{{ stress.stress }} <span class="score-label">{{ t('stress_' ~ stress.stress) }}</span>{% else %}–{% endif %}</p>
+      <a href="{{ url_for('wellness.stress') }}">{{ t('log_stress') }}</a>
+    </article>
+  </div>
+  <section class="panel" style="margin-top:0.75rem">
+    <h2 class="with-icon">{{ icon('chart-no-axes-combined', 20) }} {{ t('chart_mood') }}</h2>
+    <p class="hint">😢 {{ t('mood_1') }} · 😄 {{ t('mood_5') }}</p>
+    {{ chart }}
+    {% if not points %}<p>{{ t('no_data') }}</p>{% endif %}
+  </section>
+  <section class="panel next-panel">
+    <h2>{{ t('from_here') }}</h2>
+    <p class="row-actions">
+      <a class="button" href="{{ url_for('companion.page') }}">{{ icon('messages-square', 16) }} {{ t('nav_companion') }}</a>
+      <a class="button secondary" href="{{ url_for('explore.plan') }}">{{ icon('clipboard-list', 16) }} {{ t('nav_plan') }}</a>
+      <a class="button secondary" href="{{ url_for('journal.index') }}">{{ icon('notebook-pen', 16) }} {{ t('nav_journal') }}</a>
+    </p>
+  </section>
+</section>
+{% endblock %}
